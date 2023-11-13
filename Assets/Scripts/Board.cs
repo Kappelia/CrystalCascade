@@ -20,10 +20,12 @@ public class Board : MonoBehaviour
     {
         for (int i = 0; i < width; i++)
         {
-            for(int j=0;j<height;j++)
+            for (int j = 0; j < height; j++)
             {
-                Vector2 tempPosition = new Vector2(i,j);
-                Instantiate(tilePrefab,tempPosition, Quaternion.identity);
+                Vector2 tempPosition = new Vector2(i, j);
+                GameObject backgroundTile = Instantiate(tilePrefab, tempPosition, Quaternion.identity) as GameObject;
+                backgroundTile.transform.parent = this.transform;
+                backgroundTile.name = "(" + i + "," + j + ")";
             }
         }
     }
